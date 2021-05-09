@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
@@ -42,6 +43,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
+        //public static uint keyCount = 0;
+        //public GameObject counter;
 
         // Use this for initialization
         private void Start()
@@ -82,9 +85,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
+            
+            //counter.GetComponent<Text>().text = keyCount.ToString();
+            
         }
 
-
+        
         private void PlayLandingSound()
         {
             m_AudioSource.clip = m_LandSound;
@@ -256,5 +262,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
         }
+
+        
     }
 }
