@@ -14,6 +14,7 @@ public class PlayerCasting : MonoBehaviour
     public GameObject monsterDist;
     float attackRange;
     float currentTime;
+    public AudioSource hurtSound;
     //public float invulnTime = 3.0f;
     //private bool invulnPhasee = false;
     // Update is called once per frame
@@ -46,6 +47,7 @@ public class PlayerCasting : MonoBehaviour
 
             if (currentTime >= damageTime)
             {
+                hurtSound.Play();
                 Damage();
             }
 
