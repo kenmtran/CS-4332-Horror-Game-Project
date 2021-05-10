@@ -15,6 +15,8 @@ public class StalkerAI : MonoBehaviour
     Animator monsterAnimator;
     public PlayerCasting player;
     bool m_Attack;
+    public AudioSource attack;
+
     void Start()
     {
         stalkerAgent = GetComponent<NavMeshAgent>();
@@ -38,6 +40,7 @@ public class StalkerAI : MonoBehaviour
                 stalkerAgent.isStopped = true;
                 stalkerAgent.velocity = Vector3.zero;
                 monsterAnimator.SetBool("Attack", true);
+                attack.Play();
                 //Target within attack range
                 //monster.GetComponent<Animator>().Play("Mutant Swiping");
                 Debug.Log("Attack should of finished at: " + Time.time);

@@ -11,7 +11,6 @@ public class AOpening : MonoBehaviour
     public GameObject TextBox;
 
     void Start () {
-        ThePlayer.GetComponent<FirstPersonController> ().enabled = false;
         StartCoroutine (ScenePlayer ());
     }
 

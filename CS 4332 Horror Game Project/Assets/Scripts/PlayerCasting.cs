@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
+using UnityEngine.SceneManagement;
 
 public class PlayerCasting : MonoBehaviour
 {
@@ -21,7 +23,7 @@ public class PlayerCasting : MonoBehaviour
 
     void Start()
     {
-        playerHealth = 5;
+        playerHealth = 3;
         runDamage = false;
         attackRange = 3f;
         damageTime = 5.0f;
@@ -39,6 +41,9 @@ public class PlayerCasting : MonoBehaviour
         if (playerHealth == 0)
         {
             //transform.position = new Vector3(1.5f, 2.25f, 0.0f);
+            Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
         }
         if (playerHealth > 0)
             currentTime += Time.deltaTime;
